@@ -1,0 +1,95 @@
+---
+import { Scales, Bank, ShieldCheck } from '@phosphor-icons/react';
+import { Image } from 'astro:assets';
+import logoImg from '../assets/logo.svg';
+---
+
+<section id="legal" class="py-24 bg-white relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      
+      {/* Legal Status */}
+      <div class="lg:col-span-2 space-y-8">
+        <div class="p-10 rounded-[2.5rem] bg-bg-base border border-brand-dark/5 space-y-6">
+           <div class="flex items-center gap-4 mb-2">
+              <div class="w-12 h-12 bg-brand-dark rounded-xl flex items-center justify-center">
+                 <Scales className="w-6 h-6 text-white" weight="fill" />
+              </div>
+              <h2 class="text-3xl font-extrabold tracking-tight text-text-base">Правовой статус</h2>
+           </div>
+           
+           <div class="space-y-4">
+              <div class="flex gap-4">
+                 <span class="font-black text-brand-dark opacity-40">2.4</span>
+                 <p class="text-base text-text-muted leading-relaxed">
+                   Ассоциация вправе осуществлять предпринимательскую и иную приносящую доход деятельность лишь постольку, поскольку это служит достижению целей, ради которых она создана и соответствует указанным целям, при условии, что такая деятельность указана в его учредительных документах. Приносящая доход деятельность осуществляется Ассоциацией, в соответствии с Гражданским кодексом Российской Федерации и другими законодательными актами Российской Федерации.
+                 </p>
+              </div>
+           </div>
+        </div>
+
+        {/* Property & Funds */}
+        <div id="property" class="p-10 rounded-[2.5rem] bg-brand-dark text-white space-y-8 relative overflow-hidden group">
+           <div class="absolute -bottom-10 -right-10 opacity-10 group-hover:scale-110 transition-transform duration-700">
+              <Bank size={200} weight="duotone" />
+           </div>
+           
+           <div class="flex items-center gap-4 relative">
+              <div class="w-12 h-12 bg-white/10 backdrop-blur rounded-xl flex items-center justify-center border border-white/20">
+                 <Bank className="w-6 h-6 text-brand-accent" weight="fill" />
+              </div>
+              <h2 class="text-3xl font-extrabold tracking-tight">Имущество и средства</h2>
+           </div>
+
+           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 relative">
+              <div class="space-y-4">
+                 <div class="flex gap-3">
+                    <span class="font-black text-brand-accent">3.1</span>
+                    <p class="text-sm text-white/80 leading-relaxed">
+                      Имущество Ассоциации составляют материальные ценности и financial ресурсы, находящиеся на ее балансе и являющиеся собственностью Ассоциации. Ассоциация может иметь в собственности здания, сооружения, жилищный фонд, оборудование, инвентарь, денежные средства в рублях и иностранной валюте, ценные бумаги, иное имущество. Ассоциация может иметь земельные участки в собственности или на ином праве в соответствии с законодательством Российской Федерации.
+                    </p>
+                 </div>
+              </div>
+              <div class="space-y-4">
+                 <div class="flex gap-3">
+                    <span class="font-black text-brand-accent">3.2</span>
+                    <p class="text-sm text-white/80 leading-relaxed">
+                      Источниками формирования имущества Ассоциации являются: ... поступления от членов Ассоциации;
+                    </p>
+                 </div>
+              </div>
+           </div>
+        </div>
+      </div>
+
+      {/* Symbols Status */}
+      <div class="lg:col-span-1 h-full">
+        <div class="p-10 rounded-[2.5rem] bg-brand-accent/10 border border-brand-accent/20 h-full flex flex-col space-y-6">
+           <div class="w-12 h-12 bg-brand-accent rounded-xl flex items-center justify-center shadow-lg shadow-brand-accent/20">
+              <ShieldCheck className="w-6 h-6 text-brand-dark" weight="bold" />
+           </div>
+           
+           <h2 class="text-2xl font-extrabold tracking-tight text-brand-dark">Статус символики</h2>
+           
+           <div class="space-y-6 flex-grow">
+              <p class="text-sm text-brand-dark/80 leading-relaxed font-medium">
+                Символика Ассоциации подлежит государственной регистрации и учету в порядке, установленном законодательством Российской Федерации.
+              </p>
+              
+              <div class="bg-white/50 p-6 rounded-2xl border border-brand-accent/30 space-y-3">
+                 <div class="text-[10px] uppercase font-black tracking-widest text-brand-red">Важное ограничение</div>
+                 <p class="text-xs text-text-muted leading-relaxed">
+                   Запрещено использовать интеллектуальную собственность, оскорблять их национальные и религиозные чувства.
+                 </p>
+              </div>
+           </div>
+           
+           <div class="pt-6 opacity-20 flex justify-center">
+              <Image src={logoImg} alt="АВХП Символика" class="w-48 h-auto grayscale brightness-0" />
+           </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>

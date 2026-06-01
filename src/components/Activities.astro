@@ -1,0 +1,113 @@
+---
+import { Heartbeat, Gavel, Globe, Users } from '@phosphor-icons/react';
+
+const activities = [
+  {
+    category: "Медицинские и экспертные программы",
+    icon: "Heartbeat",
+    items: [
+      "1) участие и разработка программ по повышению качества медицинского обслуживания;",
+      "3) участие в реализации программ по медицинской тематике;",
+      "4) содействие в проведении медицинских экспертиз;"
+    ],
+    color: "bg-brand-red/5",
+    accent: "text-brand-red",
+    span: "md:col-span-6 lg:col-span-5"
+  },
+  {
+    category: "Правовая и консультационная защита",
+    icon: "Gavel",
+    items: [
+      "2) содействие соблюдению прав и интересов врачей хирургического профиля;",
+      "5) Представление консультаций врачам и представителям медицинских организаций по вопросам конфликтных ситуаций.",
+      "6) Оказание юридических, информационных и консультационных услуг в соответствии с целями создания ассоциации;",
+      "7) Содействие членам ассоциации в защите их законных прав и интересов перед медицинскими организациями, государственными органами и физическимическими лицами,",
+      "8) обеспечение действенного механизма правового воздействия на недобросовестных получателей медицинских услуг с получением материальной и моральной компенсаций всех видов ущерба;",
+      "9) исключение необоснованных претензий, споров, исков и судебных разбирательств;"
+    ],
+    color: "bg-brand-dark/5",
+    accent: "text-brand-dark",
+    span: "md:col-span-6 lg:col-span-7"
+  },
+  {
+    category: "Информационная и публичная деятельность",
+    icon: "Globe",
+    items: [
+      "10) проведение и участие в выставках, семинарах, ярмарках, конференциях, и других мероприятиях, способствующих решению целей стоящих перед Ассоциацией;",
+      "11) организация и проведение информационной деятельности, проведение других действий, способствующих достижению целей создания Ассоциации;",
+      "13) учреждение средств массовой информации, создание электронных информационных площадок, осуществление издательской деятельности, участие в разработке и реализации программ подготовки и выпуска профильных изданий;"
+    ],
+    color: "bg-brand-accent/5",
+    accent: "text-brand-accent",
+    span: "md:col-span-6 lg:col-span-7"
+  },
+  {
+    category: "Партнерство и социальные задачи",
+    icon: "Users",
+    items: [
+      "12) взаимодействие с другими некоммерческими организациями в целях более полного достижения целей создания Ассоциации;",
+      "14) участие Ассоциации и содействие своим членам в участии реализации государственных программ соответствующих целям создания Ассоциации;",
+      "15) содействие в создании совместных организаций, а также создание рабочих мест с благоприятными условиями труда для местного населения;"
+    ],
+    color: "bg-white",
+    accent: "text-brand-dark",
+    span: "md:col-span-6 lg:col-span-5"
+  }
+];
+---
+
+<section id="activities" class="py-24 bg-bg-base relative overflow-hidden">
+  <div class="absolute top-0 left-0 w-full h-full opacity-[0.02] pointer-events-none">
+    <div class="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-brand-red blur-[120px]"></div>
+    <div class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-brand-accent blur-[120px]"></div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 relative">
+    <div class="mb-16 space-y-4">
+        <h2 class="text-4xl md:text-5xl font-extrabold tracking-tighter leading-none text-text-base">
+          Виды <span class="text-brand-dark underline decoration-brand-accent/30 decoration-4 underline-offset-8">деятельности</span>
+        </h2>
+        <p class="text-lg text-text-muted max-w-[60ch]">
+          Ассоциация реализует широкий спектр программ и инициатив, направленных на развитие хирургической практики и защиту профессионалов.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+      {activities.map((cat, index) => (
+        <div class={`${cat.span} glass-panel rounded-[2.5rem] p-8 md:p-10 flex flex-col transition-all duration-300 hover:shadow-2xl hover:border-brand-dark/20 group relative overflow-hidden h-full animate-reveal ${index === 0 ? 'delay-100' : index === 1 ? 'delay-200' : index === 2 ? 'delay-300' : 'delay-400'}`}>
+          <div class="absolute top-0 right-0 p-8 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-300 pointer-events-none">
+             {cat.icon === "Heartbeat" && <Heartbeat className="w-32 h-32" weight="fill" />}
+             {cat.icon === "Gavel" && <Gavel className="w-32 h-32" weight="fill" />}
+             {cat.icon === "Globe" && <Globe className="w-32 h-32" weight="fill" />}
+             {cat.icon === "Users" && <Users className="w-32 h-32" weight="fill" />}
+          </div>
+
+          <div class={`w-16 h-16 ${cat.color} rounded-2xl flex items-center justify-center mb-10 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-sm`}>
+             {cat.icon === "Heartbeat" && <Heartbeat className={`w-9 h-9 ${cat.accent}`} weight="bold" />}
+             {cat.icon === "Gavel" && <Gavel className={`w-9 h-9 ${cat.accent}`} weight="bold" />}
+             {cat.icon === "Globe" && <Globe className={`w-9 h-9 ${cat.accent}`} weight="bold" />}
+             {cat.icon === "Users" && <Users className={`w-9 h-9 ${cat.accent}`} weight="bold" />}
+          </div>
+          
+          <h3 class="text-2xl font-bold text-text-base mb-8 leading-tight tracking-tight">
+            {cat.category}
+          </h3>
+          
+          <ul class="space-y-5 flex-grow">
+            {cat.items.map((item) => (
+              <li class="text-sm md:text-base text-text-muted leading-relaxed flex gap-4 group/item">
+                <span class={`w-2 h-2 rounded-full mt-2.5 shrink-0 bg-brand-accent/40 group-hover/item:bg-brand-accent transition-colors duration-300`}></span>
+                <span class="group-hover/item:text-text-base transition-colors duration-300">{item}</span>
+              </li>
+            ))}
+          </ul>
+          
+          <div class="mt-12 pt-8 border-t border-brand-dark/5 flex items-center justify-between">
+             <div class="text-[10px] uppercase font-black tracking-widest text-brand-dark/40">Category {String.fromCharCode(65 + index)}</div>
+             <div class={`w-2 h-2 rounded-full ${cat.accent.replace('text-', 'bg-')} opacity-20`}></div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

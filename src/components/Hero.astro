@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets';
+import logoImg from '../assets/logo.svg';
+import { FirstAid } from '@phosphor-icons/react';
+---
+
+<section class="relative min-h-[90dvh] flex items-center pt-24 pb-20 overflow-hidden">
+  {/* Background accents */}
+  <div class="absolute top-[-10%] right-[-5%] w-[40vw] h-[40vw] bg-brand-dark/5 blur-[120px] rounded-full -z-10 animate-pulse"></div>
+  <div class="absolute bottom-[-5%] left-[-5%] w-[30vw] h-[30vw] bg-brand-accent/5 blur-[100px] rounded-full -z-10"></div>
+
+  <div class="max-w-7xl mx-auto px-6 w-full">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+      <div class="lg:col-span-7 flex flex-col items-start space-y-8">
+        <div class="inline-flex items-center gap-2 px-4 py-2 bg-brand-dark/10 rounded-full border border-brand-dark/5 animate-reveal">
+          <span class="w-2 h-2 bg-brand-red rounded-full animate-pulse"></span>
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-dark">Официальный сайт</span>
+        </div>
+        
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter leading-[0.9] text-text-base animate-reveal delay-100">
+          Ассоциация <span class="text-brand-dark block">врачей хирургического</span> профиля
+        </h1>
+        
+        <p class="text-lg md:text-xl text-text-muted leading-relaxed max-w-[55ch] animate-reveal delay-200">
+          Консолидация и координация деятельности хирургов для эффективного представления и защиты прав, общих интересов и профессионального развития.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto animate-reveal delay-300">
+          <a href="#activities" class="bg-brand-dark text-white px-8 py-4 rounded-2xl font-bold text-lg hover:bg-brand-red transition-all shadow-xl shadow-brand-dark/20 flex items-center justify-center gap-2 active:scale-95 group">
+            Наши направления
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14m-7-7 7 7-7 7"/></svg>
+          </a>
+          <a href="#goals" class="glass-panel text-brand-dark px-8 py-4 rounded-2xl font-bold text-lg hover:bg-white transition-all flex items-center justify-center active:scale-95">
+            Узнать о целях
+          </a>
+        </div>
+      </div>
+      
+      <div class="lg:col-span-5 relative flex items-center justify-center animate-reveal delay-500">
+        <div class="relative w-full max-w-[450px] aspect-square flex items-center justify-center">
+            {/* Logo SVG Container */}
+            <div class="absolute inset-0 bg-gradient-to-tr from-brand-dark/10 to-brand-accent/10 rounded-[3rem] rotate-6 scale-95 blur-2xl -z-10"></div>
+            <div class="w-full h-full glass-panel rounded-[3rem] p-8 flex items-center justify-center shadow-2xl relative overflow-hidden group">
+                <div class="absolute inset-0 bg-gradient-to-br from-brand-red/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                <Image src={logoImg} alt="АВХП Логотип" class="w-full h-auto transition-transform duration-700 group-hover:scale-105" loading="eager" />
+            </div>
+            
+            {/* Decorative Elements */}
+            <div class="absolute -top-6 -right-6 w-24 h-24 glass-panel rounded-2xl p-4 flex items-center justify-center shadow-xl animate-bounce [animation-duration:3s]">
+                <div class="w-12 h-12 bg-brand-accent/20 rounded-lg flex items-center justify-center">
+                   <FirstAid size={32} weight="fill" className="text-brand-accent" />
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

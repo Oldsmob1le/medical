@@ -1,0 +1,103 @@
+---
+import '../styles/global.css';
+import { Navigation } from '../components/Navigation';
+import { Image } from 'astro:assets';
+import logoImg from '../assets/logo.svg';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Официальный сайт Ассоциации врачей хирургического профиля. Объединение усилий, консолидация и координация деятельности в целях защиты прав и интересов врачей." } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="ru" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="canonical" href={canonicalURL} />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- Primary Meta Tags -->
+		<title>{title}</title>
+		<meta name="title" content={title} />
+		<meta name="description" content={description} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={new URL(logoImg.src, Astro.url)} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL(logoImg.src, Astro.url)} />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+	</head>
+	<body class="min-h-[100dvh] flex flex-col antialiased bg-bg-base text-text-base">
+		<Navigation client:load />
+		<main class="flex-grow">
+			<slot />
+		</main>
+		<footer class="py-12 bg-white border-t border-brand-dark/5">
+			<div class="max-w-7xl mx-auto px-6">
+				<div class="flex flex-col md:flex-row justify-between items-center gap-8">
+					<div class="flex items-center gap-3">
+						<Image src={logoImg} alt="MAVHL Logo" class="h-10 w-auto" />
+						<span class="text-xl font-black tracking-tighter text-brand-dark">MAVHL</span>
+					</div>
+					<p class="text-sm text-text-muted">
+						© {new Date().getFullYear()} Ассоциация врачей хирургического профиля. Все права защищены.
+					</p>
+					<div class="flex gap-6">
+						<a href="#goals" class="text-sm text-text-muted hover:text-brand-red transition-colors">Цели</a>
+						<a href="#activities" class="text-sm text-text-muted hover:text-brand-red transition-colors">Деятельность</a>
+						<a href="#contacts" class="text-sm text-text-muted hover:text-brand-red transition-colors">Контакты</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			import Lenis from 'lenis';
+
+			// Initialize Lenis
+			const lenis = new Lenis({
+				duration: 1.2,
+				easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+			});
+
+			function raf(time: number) {
+				lenis.raf(time);
+				requestAnimationFrame(raf);
+			}
+
+			requestAnimationFrame(raf);
+
+			// Handle anchor links
+			document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+				anchor.addEventListener('click', (e) => {
+					e.preventDefault();
+					const targetId = anchor.getAttribute('href');
+					if (targetId && targetId !== '#') {
+						const target = document.querySelector(targetId);
+						if (target) {
+							lenis.scrollTo(target);
+						}
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
